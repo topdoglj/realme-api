@@ -1,11 +1,9 @@
 package com.realmeapi.document;
 
 import com.realmeapi.document.account.Account;
-import com.realmeapi.document.address.Address;
 import com.realmeapi.document.contact.Contact;
+import com.realmeapi.document.identity.Identity;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.List;
 
 @Document(collection = "user")
 public class User {
@@ -13,5 +11,6 @@ public class User {
     private String name;
     private Account account;
     private Contact contact;
+    private Identity identity;
 }
 

@@ -8,5 +8,5 @@ public class Account {
 
     private long id;
     private String password;
-
+    private AccountStatus accountStatus;
 }
