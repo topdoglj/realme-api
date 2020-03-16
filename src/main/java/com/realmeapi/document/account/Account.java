@@ -1,4 +1,4 @@
-package com.realmeapi.document;
+package com.realmeapi.document.account;
 
 import com.realmeapi.document.contact.Contact;
 import org.springframework.data.mongodb.core.mapping.Document;
