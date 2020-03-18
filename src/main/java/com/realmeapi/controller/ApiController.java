@@ -1,7 +1,11 @@
 package com.realmeapi.controller;
 
+import com.realmeapi.document.user.User;
+import com.realmeapi.manager.UserManager;
 import com.realmeapi.model.AuthenticationRequest;
+import com.realmeapi.model.RegistrationRequest;
 import com.realmeapi.service.AuthenticationTokenUtils;
+import com.realmeapi.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,6 +22,21 @@ public class ApiController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private UserManager userManager;
+
+    @PostMapping("/register")
+    public String register(@RequestBody RegistrationRequest registrationRequest) {
+
+        User user = new User();
+        user.setUsername(registrationRequest.getUsername());
+        user.setPassword(registrationRequest.getPassword());
+
+        userManager.add(user);
+
+        return authenticationTokenUtils.generateToken(registrationRequest.getUsername());
+    }
 
     @PostMapping("/authenticate")
     public String authenticate(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {

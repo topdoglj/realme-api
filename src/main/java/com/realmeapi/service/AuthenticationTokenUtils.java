@@ -1,6 +1,5 @@
 package com.realmeapi.service;
 
-import com.realmeapi.model.AuthenticationToken;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
